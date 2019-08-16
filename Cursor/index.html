@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Cursor</title>
+   
+</head> 
+<style>
+  
+</style>
+<body class="body"
+<audio id="player" preload autoplay controls>
+     <source id="player-source" src="/guj-javaee/resource/audio/02-Be With You.mp3" type="audio/mpeg"/>        
+</audio>>
+    <div id="bolinha" class="bola" onmouseenter="entrar()"></div>
+    <div class="cursor" onclick="click()"></div>
+    <h1 id="cont">0</h1>
+    <h2 id="text1"></h2>
+    
+
+    <script>
+     var opCor =   window.confirm("Gostaria de jogar em modo Piscodélico?")
+ function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+ }
+ function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+   var cursor = window.document.querySelector('.cursor')
+   var bola = window.document.querySelector('.bola')
+   var bola1 = window.document.querySelector('.bola')
+   var cont = window.document.getElementById('cont')
+  var corpo = window.document.querySelector('body')
+  var text1 = window.document.getElementById('text1')
+   document.addEventListener('mousemove', e =>{
+       cursor.setAttribute("style", "top: "+(e.pageY -10 )+"px; left: "+(e.pageX-10 )+"px")
+       cursor.style.backgroundColor=getRandomColor()
+       
+   })
+
+   function remove1() {
+  var element = document.getElementById("bolinha");
+  element.classList.remove("bola");
+}
+
+   document.addEventListener('click', () => {
+    bola.style.backgroundColor=getRandomColor()
+       cursor.classList.add("expand");
+       setTimeout(() => {
+           cursor.classList.remove("expand");
+           
+       },500)
+
+       
+   })
+   function cor1(){
+n2 = window.document.getElementById('bolinha')
+
+return n2.style.border=getRandomColor()
+}
+
+//var invervarlo = setInterval(corbola,50)
+
+function corbola(){
+n2 = window.document.getElementById('bolinha')
+return n2.style.backgroundColor=getRandomColor()
+}
+function corPlacar(){
+  var cont = window.document.getElementById('cont')
+  return cont.style.color=getRandomColor()
+}
+var placar  = 0
+
+function corfundo(){
+  n1 = window.document.querySelector('body')
+  return n1.style.backgroundColor=getRandomColor()
+}
+
+function corLetra(a){
+  n1 = window.document.getElementById(a)
+  return n1.style.color=getRandomColor()
+}
+ function entrar(){
+  
+    placar =placar + 1
+     bola.style.backgroundColor=getRandomColor()
+     cursor.classList.add("expand");
+     setTimeout(() => {
+      
+    cursor.classList.remove("expand");
+      num1 = Number(1)
+      num2 = Number(100)
+    var rand = getRandomInt(num1,num2)
+
+  if(opCor == true){ var b = bola.classList.add("bola",setInterval(corbola,50), bola.style.margin=rand+"%", setInterval(corPlacar,50),setInterval(corfundo,3000))
+  placar >= 3?text1.innerText="Meia Nãããããããooo Bateeeee!!!!":text1.innerText="";
+ corLetra("text1")
+}
+  else{
+   var b = bola.classList.add("bola", bola.style.margin=rand+"%",bola.style.border="blue")
+  
+   }
+  
+   cont.innerText=placar;
+ 
+   b},320)
+  
+ }
+   
+   
+   
+   
+ 
+
+    </script>
+</body>
+</html>
