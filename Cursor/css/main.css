@@ -7,13 +7,13 @@ body {
 
 h1 {
   color: antiquewhite;
-  position: absolute;
+  position: fixed;
 }
 
 h2 {
   -webkit-margin-start: 35%;
           margin-inline-start: 35%;
-  scroll-margin: initial;
+  position: fixed;
 }
 
 .cursor {

@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <link id = "aew" href="Aula10\Cursor\confiracao.html">
     <title>Cursor</title>
    
 </head> 
 <style>
-  
+
 </style>
-<body class="body"
-<audio id="player" preload autoplay controls>
-     <source id="player-source" src="/guj-javaee/resource/audio/02-Be With You.mp3" type="audio/mpeg"/>        
-</audio>>
+<body class="body">
+    <embed id="musica" src="zombi.mp3" height="0" width="0"></embed>
     <div id="bolinha" class="bola" onmouseenter="entrar()"></div>
     <div class="cursor" onclick="click()"></div>
     <h1 id="cont">0</h1>
+    <h1 id="cronometro">100</h1>
     <h2 id="text1"></h2>
     
-
+   
     <script>
      var opCor =   window.confirm("Gostaria de jogar em modo Piscodélico?")
  function getRandomColor() {
@@ -43,12 +43,33 @@
    var cont = window.document.getElementById('cont')
   var corpo = window.document.querySelector('body')
   var text1 = window.document.getElementById('text1')
+  var crono = window.document.getElementById('cronometro')
+  var musica = window.document.getElementById('musica')
+  crono.style.marginLeft="95%"
+ 
+  crono.style.position="fixed"
    document.addEventListener('mousemove', e =>{
        cursor.setAttribute("style", "top: "+(e.pageY -10 )+"px; left: "+(e.pageX-10 )+"px")
        cursor.style.backgroundColor=getRandomColor()
        
    })
-
+   var menos = 10
+   function cronometro(){
+   
+    if(menos >= 0){
+     
+    menos = menos - 1
+    crono.innerHTML=menos
+    var stop = menos == -1? [crono.innerHTML="SEM TEMPO IRMãO!!",crono.style.marginLeft="35%",crono.style.position="position",remove1()] :corLetra('cronometro')
+    //var music = musica == true?crono.innerHTML="":crono.innerHTML="Parabéns!"
+    setTimeout('cronometro()',1000);
+    }
+    
+   }
+ 
+   cronometro()
+   
+   
    function remove1() {
   var element = document.getElementById("bolinha");
   element.classList.remove("bola");
@@ -92,7 +113,7 @@ function corLetra(a){
   return n1.style.color=getRandomColor()
 }
  function entrar(){
-  
+  menos = menos + 1
     placar =placar + 1
      bola.style.backgroundColor=getRandomColor()
      cursor.classList.add("expand");

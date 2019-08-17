@@ -8,11 +8,11 @@ cursor: none;
 
 h1{
     color:antiquewhite;
-    position: absolute;
+    position: fixed;
   }
 h2{
     margin-inline-start: 35%;
-    scroll-margin:feature-exists($feature: ".bola");
+    position: fixed;
 }
 .cursor{
 
