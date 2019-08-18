@@ -4,6 +4,7 @@ margin: 0;
 height: 100vh;
 background: rgb(27, 27, 27);
 cursor: none;
+overflow: hidden;
 }
 
 h1{
@@ -13,6 +14,19 @@ h1{
 h2{
     margin-inline-start: 35%;
     position: fixed;
+}
+#cronometro{
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    transform: translate(-50%, -50%);  
+
+    text-align: center;
+
 }
 .cursor{
 
@@ -28,7 +42,7 @@ animation: cursorAnim .5s infinite alternate;
 .bola{
 width: 50px;
 height: 50px;
-margin: 50%;
+//margin: 50%;
 border: 1px solid rgb(148, 11, 11);
 border-radius: 50%;
 position: absolute;
@@ -83,5 +97,13 @@ animation: cursorAnim .8s infinite alternate;
 
 }
 
+.wrapper{
 
+    height: 100%;
+
+    width: 100%;
+
+    position: relative;
+
+}
 

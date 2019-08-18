@@ -3,6 +3,7 @@ body {
   height: 100vh;
   background: #1b1b1b;
   cursor: none;
+  overflow: hidden;
 }
 
 h1 {
@@ -14,6 +15,15 @@ h2 {
   -webkit-margin-start: 35%;
           margin-inline-start: 35%;
   position: fixed;
+}
+
+#cronometro {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .cursor {
@@ -33,7 +43,6 @@ h2 {
 .bola {
   width: 50px;
   height: 50px;
-  margin: 50%;
   border: 1px solid #940b0b;
   border-radius: 50%;
   position: absolute;
@@ -137,5 +146,11 @@ h2 {
   -webkit-animation: cursorAnim3 .5s forwards;
           animation: cursorAnim3 .5s forwards;
   border: 1px solid #d2d2df;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 /*# sourceMappingURL=main.css.map */

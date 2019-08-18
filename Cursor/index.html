@@ -12,14 +12,16 @@
 <style>
 
 </style>
+
 <body class="body">
+    <div class="wrapper">
     <embed id="musica" src="zombi.mp3" height="0" width="0"></embed>
     <div id="bolinha" class="bola" onmouseenter="entrar()"></div>
     <div class="cursor" onclick="click()"></div>
     <h1 id="cont">0</h1>
     <h1 id="cronometro">100</h1>
     <h2 id="text1"></h2>
-    
+  </div>
    
     <script>
      var opCor =   window.confirm("Gostaria de jogar em modo Piscodélico?")
@@ -45,7 +47,7 @@
   var text1 = window.document.getElementById('text1')
   var crono = window.document.getElementById('cronometro')
   var musica = window.document.getElementById('musica')
-  crono.style.marginLeft="95%"
+  //crono.style.marginLeft="95%"
  
   crono.style.position="fixed"
    document.addEventListener('mousemove', e =>{
@@ -59,10 +61,11 @@
     if(menos >= 0){
      
     menos = menos - 1
-    crono.innerHTML=menos
-    var stop = menos == -1? [crono.innerHTML="SEM TEMPO IRMãO!!",crono.style.marginLeft="35%",crono.style.position="position",remove1()] :corLetra('cronometro')
-    //var music = musica == true?crono.innerHTML="":crono.innerHTML="Parabéns!"
+    setTimeout(crono.innerHTML=menos,0)
+    //crono.innerHTML=menos
+    var stop = menos <= 0? [crono.innerHTML="SEM TEMPO IRMãO!!",crono.style.position="fixed",crono.style.top = "50%" ,crono.style.left = "50%" , crono.style.transform = "translate(-50%,-50%)" ,remove1()] :corLetra('cronometro')    //var music = musica == true?crono.innerHTML="":crono.innerHTML="Parabéns!"
     setTimeout('cronometro()',1000);
+    
     }
     
    }
@@ -74,17 +77,22 @@
   var element = document.getElementById("bolinha");
   element.classList.remove("bola");
 }
-
-   document.addEventListener('click', () => {
-    bola.style.backgroundColor=getRandomColor()
+clicke1 = 0
+  document.addEventListener('click', () => {
+    clicke1 = 1
+    
+      bola.style.backgroundColor="yellow"
+      text1.innerHTML=clicke
        cursor.classList.add("expand");
        setTimeout(() => {
+      
            cursor.classList.remove("expand");
            
        },500)
-
        
    })
+      
+   
    function cor1(){
 n2 = window.document.getElementById('bolinha')
 
@@ -112,35 +120,121 @@ function corLetra(a){
   n1 = window.document.getElementById(a)
   return n1.style.color=getRandomColor()
 }
+
  function entrar(){
-  menos = menos + 1
-    placar =placar + 1
-     bola.style.backgroundColor=getRandomColor()
+ // menos = menos + 1
+   // placar =placar + 1
+    // bola.style.backgroundColor=getRandomColor()
      cursor.classList.add("expand");
      setTimeout(() => {
       
     cursor.classList.remove("expand");
       num1 = Number(1)
-      num2 = Number(100)
+      num2 = Number(98)
     var rand = getRandomInt(num1,num2)
-
-  if(opCor == true){ var b = bola.classList.add("bola",setInterval(corbola,50), bola.style.margin=rand+"%", setInterval(corPlacar,50),setInterval(corfundo,3000))
-  placar >= 3?text1.innerText="Meia Nãããããããooo Bateeeee!!!!":text1.innerText="";
+    var lugar = getRandomInt(1,3)
+    function movebola(){
+       if (lugar == 1){
+       bola.style.top=rand+"%";
+       }
+       else if (lugar == 2){
+       bola.style.left=rand+"%";
+       }
+    }
+   
+    if(clicke1 == 1){
+      lugar1 = 0
+      clicke1 = 0
+      placar = placar +5
+      menos = menos +5
+  
+    }else if(clicke1 == 0){
+    var lugar1 = getRandomInt(1,5)
+    }
+    var opResult = lugar1
+    switch(opResult){
+      case 0:
+        bola.style.backgroundColor="black"
+        placar = placar + 0
+        menos = menos + 0
+        break
+      case 1:
+       bola.style.backgroundColor="red"
+       placar = placar + 1
+       menos = menos + 1
+       break
+       case 2:
+        bola.style.backgroundColor="blue"
+        placar = placar + 2
+        menos = menos + 2
+        break
+      case 3:
+        bola.style.backgroundColor="green"
+        placar = placar - 1
+        menos = menos - 1
+       break
+       case 4:
+        bola.style.backgroundColor="White"
+        placar = placar -2
+        menos = menos - 2
+       break
+    }
+   /* function corBolaPontos(a){
+      
+       if (a === 0){
+        bola.style.backgroundColor="black"
+        placar = placar + 0
+        menos = menos + 0
+      
+       }
+       else if (a === 1){
+       bola.style.backgroundColor="red"
+       placar = placar + 1
+       menos = menos + 1
+       }
+       else if (a === 2){
+        bola.style.backgroundColor="blue"
+        placar = placar + 2
+        menos = menos + 2
+       }
+       else if (a === 3){
+         placar = placar - 1
+         menos = menos - 1
+        bola.style.backgroundColor="green"
+       }
+       else if (a === 4){
+         placar = placar -2
+        menos = menos - 2
+        bola.style.backgroundColor="White"
+       }
+       
+    }*/
+    
+    if(opCor == true){ var b = bola.classList.add("bola",setInterval(corbola,50), movebola(), setInterval(corPlacar,50),setInterval(corfundo,3000))
+    placar >= 3?text1.innerText=lugar:text1.innerText="";
  corLetra("text1")
 }
   else{
-   var b = bola.classList.add("bola", bola.style.margin=rand+"%",bola.style.border="blue")
-  
+    placar >= 0?text1.innerText=lugar1:text1.innerText="";
+    
+    var b = bola.classList.add("bola",movebola(),corBolaPontos(lugar1), bola.style.border="blue")
    }
   
-   cont.innerText=placar;
+   //cont.innerText=placar;
+   setTimeout(cont.innerText=placar,10)
  
    b},320)
   
  }
+ var w = window.innerWidth;
+
+var h = window.innerHeight;
+
+
+
+let teste = bola.getBoundingClientRect();
    
-   
-   
+ 
    
  
 

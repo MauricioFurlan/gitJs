@@ -1,0 +1,9 @@
+var agora = new Date()
+var hora = agora.getHours()
+var min = agora.getMinutes()
+var seg = agora.getSeconds()
+function horas1(){
+console.log(`agora são ${hora}:${min}:${seg}`)
+}
+setInterval(horas1,1000)
+
