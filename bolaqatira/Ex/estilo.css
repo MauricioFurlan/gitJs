@@ -1,0 +1,52 @@
+body{
+background: rgb(133, 133, 247);
+font: normal 15pt Arial;
+
+}
+header{
+color:white;
+text-align: center;
+}
+section{
+background: white;
+border-radius: 10px;
+width: 500px;
+padding: 15px; 
+margin: auto; 
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);
+}
+footer{
+color:white;
+text-align: center;
+font-style: italic;
+}
+bola{
+    cursor: crosshair;
+    background-color: rgb(133, 133, 247);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px; color: blue;
+    position: absolute;
+    right: 50%;
+    bottom: 20%;
+}
+bolaTiro{
+    background-color: rgb(133, 133, 247);
+    width: 30px;
+    height: 5px;
+    border-radius: 50%;
+    border: 1px; color: blue;
+    position: absolute;
+    right: 50%;
+    bottom: 20%;
+}
+pino{
+    background-color: rgb(15, 15, 15);
+     width: 100px;
+    height: 3.5px;
+    position: absolute;
+    bottom: 95%;
+}
+
+

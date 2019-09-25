@@ -1,0 +1,50 @@
+body{
+background: rgb(133, 133, 247);
+font: normal 15pt Arial;
+cursor: none;
+}
+header{
+color:white;
+text-align: center;
+}
+section{
+background: white;
+border-radius: 10px;
+width: 500px;
+padding: 15px; 
+margin: auto; 
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);
+}
+footer{
+color:white;
+text-align: center;
+font-style: italic;
+}
+
+div{
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(8, 8, 8);
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.8;
+    top: -8px;
+    left: -8px;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+    animation: cursorAnim2 1s infinite alternate;
+    box-shadow: inset -1px -10px 20px 0px rgb(27, 27, 27);
+    
+}
+@keyframes cursorAnim2{
+    0%{
+        transform: scale(0);
+    }
+    30% {
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1);
+    }
+    
+}
